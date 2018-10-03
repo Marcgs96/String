@@ -1,14 +1,21 @@
 #pragma once
+#include "string.h"
+#include "assert.h"
 
 class String {
+private:
+	char* string = nullptr;
+	uint allocated_memory = 0u;
 public:
-	char* text;
+	String() {}
 
-	String() {
-		text = (char)"";
-	};
-
-	String(const char txt) : text((char)txt) {};
+	String(const char* string) {
+		assert(string!=nullptr)
+		if(string != nullptr){
+			allocated_memory = str_length(string)+1;
+			this->string = new char[allocated_memory];
+		}
+	}
 
 	String(const String& txt) : text(txt.text) {};
 
